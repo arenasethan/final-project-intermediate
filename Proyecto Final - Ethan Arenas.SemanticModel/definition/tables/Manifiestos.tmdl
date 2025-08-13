@@ -1,0 +1,172 @@
+table Manifiestos
+	lineageTag: 701bbf77-9d48-496b-9121-5e1f7aff8f24
+
+	column NUM_CORREDOC_MANI
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e7a0529-62cc-4f03-af52-cf824932191b
+		summarizeBy: none
+		sourceColumn: NUM_CORREDOC_MANI
+
+		annotation SummarizationSetBy = Automatic
+
+	column MANIFIESTO
+		dataType: string
+		lineageTag: 2074bfc0-399d-4653-85a5-f4b3fb7777dc
+		summarizeBy: none
+		sourceColumn: MANIFIESTO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FEC_PRG_LLEGADA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1168fd31-9e63-49aa-bb7c-31368e5e1c1f
+		summarizeBy: none
+		sourceColumn: FEC_PRG_LLEGADA
+
+		variation Variación
+			isDefault
+			relationship: f781ef77-43e3-40bb-a14c-8807d8e06a6f
+			defaultHierarchy: LocalDateTable_3496d96a-82a0-4794-92d3-905c7212fe2d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FEC_LLEGADA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 005df276-b1ad-4d6b-b7e0-fca50b38f3fe
+		summarizeBy: none
+		sourceColumn: FEC_LLEGADA
+
+		variation Variación
+			isDefault
+			relationship: 12d67a45-44fb-4212-a3ed-57a4817ac8fd
+			defaultHierarchy: LocalDateTable_f14b127d-6c7e-424d-984d-d68cd7c56c8d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNT_TOTPESO
+		dataType: double
+		lineageTag: bddd172a-0f4d-4e9f-b7ae-45fa12d05d69
+		summarizeBy: sum
+		sourceColumn: CNT_TOTPESO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CNT_TOTBULTOS
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fbcf321-d08c-4f54-a795-3c974d4e1d9d
+		summarizeBy: sum
+		sourceColumn: CNT_TOTBULTOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNT_TOTEQUIPAMIENT
+		dataType: int64
+		formatString: 0
+		lineageTag: a7809117-16d1-42a6-9ebb-e603b269f710
+		summarizeBy: sum
+		sourceColumn: CNT_TOTEQUIPAMIENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOM_NAVIERA
+		dataType: string
+		lineageTag: 05a8adb3-a54d-4a42-9788-b4c305fff10d
+		summarizeBy: none
+		sourceColumn: NOM_NAVIERA
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUM_DOCIDENT
+		dataType: int64
+		formatString: 0
+		lineageTag: ccbff519-ab76-4cda-8b26-b5bf2fd10a96
+		summarizeBy: sum
+		sourceColumn: NUM_DOCIDENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOM_RAZONSOCIAL
+		dataType: string
+		lineageTag: 92569c7a-773d-4cd6-bca7-19bd0040f737
+		summarizeBy: none
+		sourceColumn: NOM_RAZONSOCIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOM_MEDIO_TRANSP
+		dataType: string
+		lineageTag: b755eb46-db70-4c78-adbc-7db0900efdd0
+		summarizeBy: none
+		sourceColumn: NOM_MEDIO_TRANSP
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUM_MATRICULA
+		dataType: int64
+		formatString: 0
+		lineageTag: 05c9a918-cde8-4649-be5a-f5b6325d480a
+		summarizeBy: sum
+		sourceColumn: NUM_MATRICULA
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_PAIS
+		dataType: string
+		lineageTag: b6aab648-6800-4c9b-a540-27b4868d53fe
+		summarizeBy: none
+		sourceColumn: COD_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_TIPMEDIOTRANSP
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d220271-f994-47fe-a1e7-a8f9a26c2cca
+		summarizeBy: none
+		sourceColumn: COD_TIPMEDIOTRANSP
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_LLEGA
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 0726f957-4109-402e-b82f-a0f73e55b236
+		summarizeBy: none
+		sourceColumn: FECHA_LLEGA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column IND_LLEG = IF(ISBLANK(Manifiestos[FECHA_LLEGA]),"NO","SI")
+		lineageTag: 8e72ac2b-5f87-49e6-bdef-d8c2a90753cd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Manifiestos = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files("D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS"),
+				    #"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_MANIFIESTO csv" = Origen{[#"Folder Path"="D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\",Name="MANIFIESTO.csv"]}[Content],
+				    #"CSV importado" = Csv.Document(#"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_MANIFIESTO csv",[Delimiter=",", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"NUM_CORREDOC_MANI", Int64.Type}, {"MANIFIESTO", type text}, {"FEC_PRG_LLEGADA", type datetime}, {"FEC_LLEGADA", type datetime}, {"CNT_TOTPESO", type number}, {"CNT_TOTBULTOS", Int64.Type}, {"CNT_TOTEQUIPAMIENT", Int64.Type}, {"NOM_NAVIERA", type text}, {"NUM_DOCIDENT", Int64.Type}, {"NOM_RAZONSOCIAL", type text}, {"NOM_MEDIO_TRANSP", type text}, {"NUM_MATRICULA", Int64.Type}, {"COD_PAIS", type text}, {"COD_TIPMEDIOTRANSP", Int64.Type}}),
+				    #"FECHA_LLEGA AGREGADO" = Table.AddColumn(#"Tipo cambiado", "FECHA_LLEGA", each DateTime.Date([FEC_LLEGADA])),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"FECHA_LLEGA AGREGADO",{{"FECHA_LLEGA", type date}})
+				in
+				    #"Tipo cambiado1"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

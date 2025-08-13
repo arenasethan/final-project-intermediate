@@ -1,0 +1,35 @@
+table Paises
+	excludeFromModelRefresh
+	lineageTag: 6b54d8bf-205c-4409-9944-e1b08724dd25
+
+	column COD_PAISORIGEN
+		dataType: string
+		lineageTag: e4a2337a-0ead-4bc3-9c00-f91378d0703c
+		summarizeBy: none
+		sourceColumn: COD_PAISORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: 7f96cab1-a6fc-403b-9a04-5f800a291524
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Paises = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files("D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS"),
+				    #"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_PAIS csv" = Origen{[#"Folder Path"="D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\",Name="PAIS.csv"]}[Content],
+				    #"CSV importado" = Csv.Document(#"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_PAIS csv",[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true])
+				in
+				    #"Encabezados promovidos"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

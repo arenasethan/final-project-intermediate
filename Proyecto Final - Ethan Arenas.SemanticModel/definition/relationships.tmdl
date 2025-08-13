@@ -1,0 +1,61 @@
+relationship fc3c7c7a-5cbe-4bc2-b59e-db3249120cd3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Declaraciones.FEC_DECLARACION
+	toColumn: LocalDateTable_4fd01d63-e657-4c95-88ef-17913c9cddb4.Date
+
+relationship e3e68324-e9a1-463f-94f0-1f897b151fd8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Declaraciones.FEC_AUTLEVANTE
+	toColumn: LocalDateTable_0074ca80-9334-48e3-850e-732a3baeaf80.Date
+
+relationship AutoDetected_8f67be69-610b-469e-887b-82d30825430d
+	fromColumn: Declaraciones.COD_LUGARRECEP
+	toColumn: Lugares.COD_LUGARRECEP
+
+relationship AutoDetected_ba0c9e05-c5f8-4279-914c-10483a245d57
+	fromColumn: Declaraciones.COD_ESTDUA
+	toColumn: 'Estados D'.COD_ESTDUA
+
+relationship AutoDetected_96b00f5c-eded-43ea-a15c-65be0c66cd43
+	fromColumn: Series.COD_UNICOMER
+	toColumn: Unidades.COD_UNICOMER
+
+relationship f781ef77-43e3-40bb-a14c-8807d8e06a6f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Manifiestos.FEC_PRG_LLEGADA
+	toColumn: LocalDateTable_3496d96a-82a0-4794-92d3-905c7212fe2d.Date
+
+relationship AutoDetected_178868f6-e68a-49ff-acd1-c174ddd3243f
+	fromColumn: Manifiestos.COD_TIPMEDIOTRANSP
+	toColumn: 'Medio Trans'.COD_TIPMEDIOTRANSP
+
+relationship d9623e7d-84d7-1d7f-28a0-b8a31c674c56
+	fromColumn: Declaraciones.NUM_CORREDOC_MANI
+	toColumn: Manifiestos.NUM_CORREDOC_MANI
+
+relationship 7b2d0d24-5c4f-893d-2483-9926fcfb71a4
+	fromColumn: Series.NUM_CORREDOC
+	toColumn: Declaraciones.NUM_CORREDOC
+
+relationship 8f87fc2a-ae49-e590-044f-1807894420ef
+	fromColumn: Series.COD_ESTMERC
+	toColumn: 'Estados M'.COD_ESTMERC
+
+relationship 591c824b-f787-9993-1637-e2e44a4fd5f0
+	fromColumn: Series.COD_PAISORIGEN
+	toColumn: Paises.COD_PAISORIGEN
+
+relationship 8cce80c4-5e35-c7e8-9e41-2bbd400c9074
+	crossFilteringBehavior: bothDirections
+	fromColumn: Declaraciones.FECHA_NUMERACION
+	toColumn: Calendario.Date
+
+relationship 12d67a45-44fb-4212-a3ed-57a4817ac8fd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Manifiestos.FEC_LLEGADA
+	toColumn: LocalDateTable_f14b127d-6c7e-424d-984d-d68cd7c56c8d.Date
+
+relationship f7adad1b-6f8f-1488-a941-fd8bb1e99d2b
+	fromColumn: Manifiestos.FECHA_LLEGA
+	toColumn: Calendario2.Date
+

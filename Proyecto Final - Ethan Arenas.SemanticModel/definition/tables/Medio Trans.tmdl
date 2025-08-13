@@ -1,0 +1,38 @@
+table 'Medio Trans'
+	excludeFromModelRefresh
+	lineageTag: 7fd9d4f9-7a6e-4978-8f95-3698b5d025fc
+
+	column COD_TIPMEDIOTRANSP
+		dataType: int64
+		formatString: 0
+		lineageTag: 40ade550-7079-44be-98b9-06a31bdb8726
+		summarizeBy: none
+		sourceColumn: COD_TIPMEDIOTRANSP
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: c871c8f3-a4c5-457c-b6c0-26e5d0453559
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Medio Trans' = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files("D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS"),
+				    #"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_MEDIOTRANSP csv" = Origen{[#"Folder Path"="D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\",Name="MEDIOTRANSP.csv"]}[Content],
+				    #"CSV importado" = Csv.Document(#"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_MEDIOTRANSP csv",[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"COD_TIPMEDIOTRANSP", Int64.Type}, {"DESCRIPCION", type text}}),
+				    #"Errores quitados" = Table.RemoveRowsWithErrors(#"Tipo cambiado", {"COD_TIPMEDIOTRANSP"})
+				in
+				    #"Errores quitados"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

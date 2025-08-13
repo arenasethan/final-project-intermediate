@@ -1,0 +1,176 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 334.21536353342975,
+        "y": 261.02896137964581
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 334.21536353342975,
+            "y": 717.01606635876021
+          },
+          "nodeIndex": "Declaraciones",
+          "nodeLineageTag": "2586fe13-9a74-4af6-bf8e-a0aec0a99263",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 783.48904911282045
+          },
+          "nodeIndex": "Estados D",
+          "nodeLineageTag": "64498acc-b5b9-411a-bf45-69f43ce97dc4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 956.165235663671,
+            "y": 679.526516602907
+          },
+          "nodeIndex": "Estados M",
+          "nodeLineageTag": "21e59892-f51c-40b0-becb-ffcb727a6044",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 349.53714410882662,
+            "y": 1067.2301831663858
+          },
+          "nodeIndex": "Lugares",
+          "nodeLineageTag": "d4d51da6-3a03-4c41-b8f3-550bf31758ce",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 709.28488325395244,
+            "y": 1058.6898121632589
+          },
+          "nodeIndex": "Paises",
+          "nodeLineageTag": "6b54d8bf-205c-4409-9944-e1b08724dd25",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 618.394749695573,
+            "y": 432.5324741475207
+          },
+          "nodeIndex": "Series",
+          "nodeLineageTag": "7ff3cab7-8d4a-48f4-af40-6ca6b5f36841",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1403.1905684200981,
+            "y": 710.80244359806136
+          },
+          "nodeIndex": "Unidades",
+          "nodeLineageTag": "95eedf90-6611-43d3-b924-b4de85c24219",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 856.60454120178588,
+            "y": 1232.1224083678353
+          },
+          "nodeIndex": "Manifiestos",
+          "nodeLineageTag": "701bbf77-9d48-496b-9121-5e1f7aff8f24",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1530.0053594534129,
+            "y": 467.89332350258428
+          },
+          "nodeIndex": "Medio Trans",
+          "nodeLineageTag": "7fd9d4f9-7a6e-4978-8f95-3698b5d025fc",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1814.0053594534129,
+            "y": 802.169671139894
+          },
+          "nodeIndex": "Medidas",
+          "nodeLineageTag": "5d5966bb-fcf8-45fa-be50-add61aaa40e1",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 2098.0053594534129,
+            "y": 690.09078608100208
+          },
+          "nodeIndex": "Calendario",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2382.0053594534129,
+            "y": 593.97245849266415
+          },
+          "nodeIndex": "Calendario2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 31.384283767210043,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

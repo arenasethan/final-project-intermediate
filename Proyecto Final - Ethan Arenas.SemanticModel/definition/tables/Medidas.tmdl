@@ -1,0 +1,137 @@
+table Medidas
+	lineageTag: 5d5966bb-fcf8-45fa-be50-add61aaa40e1
+
+	measure CantDeclaraciones = COUNT(Declaraciones[NUM_CORREDOC])
+		formatString: 0
+		displayFolder: Agregacion
+		lineageTag: d3284bbf-f427-4b3a-9346-b32474b1d93e
+
+	measure SumFOB = SUM(Declaraciones[MTO_TOTFOBDOL])
+		displayFolder: Agregacion
+		lineageTag: 2ee86b75-0d05-412b-a199-85bada91e7dd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure SumPesoNeto = SUM(Declaraciones[CNT_PESONETO_TOTAL])
+		displayFolder: Agregacion
+		lineageTag: 3373214a-d963-4307-95fa-edb973156f57
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure SumCIF = SUM(Declaraciones[MTO_TOTVALORADU])
+		displayFolder: Agregacion
+		lineageTag: 619868db-9b64-4cfa-848b-02f1ed420c77
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CantRojo =
+			
+			CALCULATE(
+			    COUNT(Declaraciones[NUM_CORREDOC]),
+			    Declaraciones[COD_CANAL] = "Rojo"
+			)
+		formatString: 0
+		displayFolder: Calculate
+		lineageTag: 442dde17-3ce8-4be2-9caf-456a3d755cb9
+
+	measure PorcentajeRojo = DIVIDE([CantRojo],[CantDeclaraciones],0)
+		displayFolder: Porcentaje
+		lineageTag: 60938b22-0e76-4c6e-bf79-5ab1d84b8547
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CantNaranja =
+			
+			CALCULATE(
+			    COUNT(Declaraciones[NUM_CORREDOC]),
+			    Declaraciones[COD_CANAL] = "Naranja"
+			)
+		formatString: 0
+		displayFolder: Calculate
+		lineageTag: b9ad08a4-f695-4172-bcb3-96c3752abec7
+
+	measure PorcentajeControl = DIVIDE([CantRojo]+[CantNaranja],[CantDeclaraciones],0)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Porcentaje
+		lineageTag: a819a037-d80b-4f04-b109-5b2b34876a85
+
+	measure SumFOBSeries = SUM(Series[MTO_FOBDOL])
+		formatString: 0
+		displayFolder: Agregacion
+		lineageTag: 1f4f7aa6-cd82-4a3e-80c5-b1017c5d2c34
+
+	measure CantManifiestos = COUNT(Manifiestos[NUM_CORREDOC_MANI])
+		formatString: 0
+		displayFolder: Agregacion
+		lineageTag: 49ab68b4-efac-4a73-8049-950de7637159
+
+	measure CantManifiestosArribados = CALCULATE(COUNT(Manifiestos[NUM_CORREDOC_MANI]),Manifiestos[IND_LLEG]="SI")
+		formatString: 0
+		displayFolder: Calculate
+		lineageTag: 3e7070d8-c9ab-4391-8c9e-aace5a7fc2fe
+
+	measure SumPesoNetoSeries = SUM(Series[CNT_PESO_NETO])
+		displayFolder: Agregacion
+		lineageTag: ccf1cb9d-acdd-4077-b138-73c44d520fd6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CantSeries = COUNT(Series[NUM_CORREDOC])
+		formatString: 0
+		displayFolder: Agregacion
+		lineageTag: 44b134a1-0b32-4aca-b867-cf167bb99027
+
+	measure DivSeries = DIVIDE([CantSeries],[CantDeclaraciones],0)
+		displayFolder: Porcentaje
+		lineageTag: 14b8fc33-cd35-4da9-b20d-cf815bebec6d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CantComer = COUNT(Series[CNT_COMER])
+		formatString: 0
+		displayFolder: Agregacion
+		lineageTag: a4369469-a6b4-4abe-a608-ca5ceb0da05d
+
+	measure CantVehiculos =
+			
+			CALCULATE(
+			    [CantSeries],
+			    FILTER(
+			        Series,
+			        Series[PARTIDA] IN {"8701", "8702", "8703", "8704"}
+			    )
+			)
+		formatString: 0
+		displayFolder: Calculate
+		lineageTag: 26382bbf-5836-46a5-842c-430a1bf70454
+
+	measure PorcentajeControlPorCanal = ```
+			
+			DIVIDE(
+			    [CantDeclaraciones],
+			    CALCULATE([CantDeclaraciones], ALLEXCEPT(Declaraciones, Declaraciones[DIA_NUMERACION]),Declaraciones[COD_ESTDUA]<>8),
+			    0
+			)
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Porcentaje
+		lineageTag: a586d6d8-660a-4ef0-80af-ab62568cfa61
+
+	measure CantManifiestosNoArribados = CALCULATE(COUNT(Manifiestos[NUM_CORREDOC_MANI]),Manifiestos[IND_LLEG]="NO")
+		formatString: 0
+		displayFolder: Calculate
+		lineageTag: 52ddf9c4-8ea7-4bf1-b026-aea72477b98b
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

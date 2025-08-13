@@ -1,0 +1,35 @@
+table Unidades
+	excludeFromModelRefresh
+	lineageTag: 95eedf90-6611-43d3-b924-b4de85c24219
+
+	column COD_UNICOMER
+		dataType: string
+		lineageTag: f5d626fd-c145-483c-812a-a19b2cc70705
+		summarizeBy: none
+		sourceColumn: COD_UNICOMER
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: c5fb06f0-bb4c-4ce3-8165-311a77be6ab5
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Unidades = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files("D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS"),
+				    #"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_UNIDAD csv" = Origen{[#"Folder Path"="D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\",Name="UNIDAD.csv"]}[Content],
+				    #"CSV importado" = Csv.Document(#"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_UNIDAD csv",[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true])
+				in
+				    #"Encabezados promovidos"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

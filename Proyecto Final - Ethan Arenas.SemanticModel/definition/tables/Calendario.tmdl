@@ -1,0 +1,79 @@
+table Calendario
+	lineageTag: f7592a61-82dc-409f-8765-335c2738a33b
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: f2d4ba62-145d-47dd-b569-7c69adc8d682
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Año
+		formatString: 0
+		lineageTag: 35dfdf22-2fa0-471a-96e4-45d883710ae8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Año]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NroMes
+		formatString: 0
+		lineageTag: 1cb31a99-0676-4fc0-bc33-88f8656a3f8a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NroMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NombreMes
+		lineageTag: 133113ca-ea77-4cb6-99b3-e80ab294613f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NombreMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AñoMes
+		lineageTag: 7b545594-43e3-4c82-93cc-0a62c57b359f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [AñoMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesRegis
+		lineageTag: a80e47e7-6257-49d2-8927-ba83ff1b4c03
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MesRegis]
+		sortByColumn: AñoMes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				CALENDAR(DATE(2024,11,1),DATE(2025,7,31)),
+				"Año", YEAR([Date]),
+				"NroMes",MONTH([Date]),
+				"NombreMes", FORMAT([Date],"mmmm"),
+				"AñoMes", FORMAT([Date], "YYYY-MM"),
+				"MesRegis",
+				UPPER(LEFT(FORMAT([Date], "MMM"), 1)) & 
+				LOWER(MID(FORMAT([Date], "MMM-yy"), 2, LEN(FORMAT([Date], "MMM-yy"))))
+				)
+				```
+
+	annotation PBI_Id = 6acde2b754fe421ead6f3a529f3e274a
+

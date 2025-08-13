@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-PE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Declaraciones","Series","Manifiestos","Estados D","Estados M","Lugares","Paises","Unidades","Medio Trans","Medidas"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.705.0 (25.08)+b71502aff0a01340c88f384884ef42771068f115
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Declaraciones
+ref table DateTableTemplate_f3a5d875-def1-49e9-b472-d6d87986aa0b
+ref table LocalDateTable_4fd01d63-e657-4c95-88ef-17913c9cddb4
+ref table LocalDateTable_0074ca80-9334-48e3-850e-732a3baeaf80
+ref table 'Estados D'
+ref table 'Estados M'
+ref table Lugares
+ref table Paises
+ref table Unidades
+ref table Series
+ref table Manifiestos
+ref table LocalDateTable_3496d96a-82a0-4794-92d3-905c7212fe2d
+ref table 'Medio Trans'
+ref table Medidas
+ref table Calendario
+ref table Calendario2
+ref table LocalDateTable_f14b127d-6c7e-424d-984d-d68cd7c56c8d
+
+ref cultureInfo en-US
+

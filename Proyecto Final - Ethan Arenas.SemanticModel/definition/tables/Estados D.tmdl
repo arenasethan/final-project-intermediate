@@ -1,0 +1,37 @@
+table 'Estados D'
+	excludeFromModelRefresh
+	lineageTag: 64498acc-b5b9-411a-bf45-69f43ce97dc4
+
+	column COD_ESTDUA
+		dataType: int64
+		formatString: 0
+		lineageTag: 85267d23-5fd7-4bea-a170-a39484645bb8
+		summarizeBy: none
+		sourceColumn: COD_ESTDUA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPCION
+		dataType: string
+		lineageTag: 78457a94-8615-429e-bfc0-407da84d01c0
+		summarizeBy: none
+		sourceColumn: DESCRIPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Estados D' = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files("D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS"),
+				    #"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_ESTADO csv" = Origen{[#"Folder Path"="D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\",Name="ESTADO.csv"]}[Content],
+				    #"CSV importado" = Csv.Document(#"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_ESTADO csv",[Delimiter=",", Columns=2, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"COD_ESTDUA", Int64.Type}, {"DESCRIPCION", type text}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

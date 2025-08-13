@@ -1,0 +1,278 @@
+table Series
+	lineageTag: 296b8123-a0e0-438f-a2d0-f3bfa0f88f4a
+
+	column NUM_CORREDOC
+		dataType: int64
+		formatString: 0
+		lineageTag: ed2634db-a167-46ca-bbdf-4cf5a375f818
+		summarizeBy: none
+		sourceColumn: NUM_CORREDOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUM_SECSERIE
+		dataType: int64
+		formatString: 0
+		lineageTag: 63c29fa8-0528-406b-a055-6b769ff7b604
+		summarizeBy: sum
+		sourceColumn: NUM_SECSERIE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUM_PARTNANDI
+		dataType: string
+		lineageTag: bfeaf4d9-705e-4682-ad88-1a897ec2edef
+		summarizeBy: none
+		sourceColumn: NUM_PARTNANDI
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_UNICOMER
+		dataType: string
+		lineageTag: d4aa36bc-81aa-492b-b9eb-4f244331fa7d
+		summarizeBy: none
+		sourceColumn: COD_UNICOMER
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNT_COMER
+		dataType: double
+		lineageTag: b2d04788-bf6a-4a74-b32f-06072f679440
+		summarizeBy: sum
+		sourceColumn: CNT_COMER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CNT_PESO_NETO
+		dataType: double
+		lineageTag: 4f705d8f-e376-475f-a970-0f582a34c537
+		summarizeBy: sum
+		sourceColumn: CNT_PESO_NETO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CNT_PESO_BRUTO
+		dataType: double
+		lineageTag: 4654d4f7-92f1-4aa4-8bc2-ac37bbbe2c08
+		summarizeBy: sum
+		sourceColumn: CNT_PESO_BRUTO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COD_PAISORIGEN
+		dataType: string
+		lineageTag: 9d525768-d8ee-4ef9-8242-0ca9332f161f
+		summarizeBy: none
+		sourceColumn: COD_PAISORIGEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column MTO_FOBDOL
+		dataType: double
+		lineageTag: c82b0b95-d9a7-407c-bcee-34e4290d0a4b
+		summarizeBy: sum
+		sourceColumn: MTO_FOBDOL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTO_FLETEDOL
+		dataType: double
+		lineageTag: b9fccc49-5478-4625-87da-c2b1d4aecb23
+		summarizeBy: sum
+		sourceColumn: MTO_FLETEDOL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTO_SEGDOL
+		dataType: double
+		lineageTag: 41953d19-362f-4249-ba17-b1f78747d322
+		summarizeBy: sum
+		sourceColumn: MTO_SEGDOL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTO_VALORADU
+		dataType: double
+		lineageTag: d26e7d9a-836b-4fea-956d-987c20c6d402
+		summarizeBy: sum
+		sourceColumn: MTO_VALORADU
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COD_ESTMERC
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a31912b-1b2f-43b1-b3d4-a15dc91c2583
+		summarizeBy: none
+		sourceColumn: COD_ESTMERC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAPITULO_DESC
+		dataType: string
+		lineageTag: 25746c8f-f16a-4bbe-8426-c4eb6a0ade61
+		summarizeBy: none
+		sourceColumn: CAPITULO_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAPITULO
+		dataType: string
+		lineageTag: a251f875-131d-4a36-af75-b11146957e32
+		summarizeBy: none
+		sourceColumn: CAPITULO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTIDA
+		dataType: string
+		lineageTag: 2a65ede3-2e64-4c8e-8929-2326956abcdb
+		summarizeBy: none
+		sourceColumn: PARTIDA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Series = m
+		mode: import
+		source =
+				let
+				    Origen = Folder.Files("D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS"),
+				    #"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_ITEMS csv" = Origen{[#"Folder Path"="D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\",Name="ITEMS.csv"]}[Content],
+				    #"CSV importado" = Csv.Document(#"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_ITEMS csv",[Delimiter=",", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"NUM_CORREDOC", Int64.Type}, {"NUM_SECSERIE", Int64.Type}, {"NUM_PARTNANDI", type text}, {"COD_UNICOMER", type text}, {"CNT_COMER", type number}, {"CNT_PESO_NETO", type number}, {"CNT_PESO_BRUTO", type number}, {"COD_PAISORIGEN", type text}, {"MTO_FOBDOL", type number}, {"MTO_FLETEDOL", type number}, {"MTO_SEGDOL", type number}, {"MTO_VALORADU", type number}, {"COD_ESTMERC", Int64.Type}}),
+				    #"CAPITULO_DESC AGREGADO" = Table.AddColumn(
+				    #"Tipo cambiado", // <-- REEMPLAZA ESTO con el nombre real de tu paso anterior
+				    "CAPITULO_DESC",
+				    each let
+				             // Calcula el código una vez por fila para eficiencia y manejo de errores
+				             twoDigitCode = try Text.Start(Text.PadStart(Text.From([NUM_PARTNANDI]), 10, "0"), 2)
+				 otherwise null
+				         in
+				             // Ahora las condiciones usan la variable 'twoDigitCode'
+				             if twoDigitCode = null then "OTRO" // Manejo de error/null en cálculo
+				             else if twoDigitCode = "01" then "01-Animales vivos"
+				             else if twoDigitCode = "02" then "02-Carne"
+				             else if twoDigitCode = "03" then "03-Pescados, crustaceos e invertebrados acuaticos"
+				             else if twoDigitCode = "04" then "04-Leche y productos lacteos"
+				             else if twoDigitCode = "05" then "05-Demás productos de origen animal"
+				             else if twoDigitCode = "06" then "06-Plantas vivas"
+				             else if twoDigitCode = "07" then "07-Plantas y tuberculos alimenticios"
+				             else if twoDigitCode = "08" then "08-Frutas y frutos comestibles"
+				             else if twoDigitCode = "09" then "09-Café, té, yerba mate y especias"
+				             else if twoDigitCode = "10" then "10-Cereales"
+				             else if twoDigitCode = "11" then "11-Productos de la molineria"
+				             else if twoDigitCode = "12" then "12-Semillas y frutos diversos"
+				             else if twoDigitCode = "13" then "13-Gomas, resinas y demás jugos y extractos vegetales"
+				             else if twoDigitCode = "14" then "14-Materias trenzables y demás productos de origen vegetal"
+				             else if twoDigitCode = "15" then "15-Grasas y aceites de origen animal o vegetal"
+				             else if twoDigitCode = "16" then "16-Preparaciones a base de diversas fuentes animales"
+				             else if twoDigitCode = "17" then "17-Azúcares y artículos de confitería"
+				             else if twoDigitCode = "18" then "18-Cacao y sus preparaciones"
+				             else if twoDigitCode = "19" then "19-Preparaciones a base de cereales, harina, almidón, fécula o leche"
+				             else if twoDigitCode = "20" then "20-Preparaciones a base de plantas"
+				             else if twoDigitCode = "21" then "21-Preparaciones alimenticias diversas"
+				             else if twoDigitCode = "22" then "22-Bebidas, líquidos alcohólicos y vinagre"
+				             else if twoDigitCode = "23" then "23-Residuos y desperdicios de las industrias alimentarias"
+				             else if twoDigitCode = "24" then "24-Tabaco y productos con nicotina"
+				             else if twoDigitCode = "25" then "25-Sal; azufre; tierras y piedras; yesos, cales y cementos"
+				             else if twoDigitCode = "26" then "26-Minerales metalíferos"
+				             else if twoDigitCode = "27" then "27-Combustibles minerales, aceites minerales y productos de su destilación"
+				             else if twoDigitCode = "28" then "28-Productos químicos inorgánicos"
+				             else if twoDigitCode = "29" then "29-Productos químicos orgánicos"
+				             else if twoDigitCode = "30" then "30-Productos farmacéuticos"
+				             else if twoDigitCode = "31" then "31-Abonos"
+				             else if twoDigitCode = "32" then "32-Extractos curtientes o tintóreos"
+				             else if twoDigitCode = "33" then "33-Aceites esenciales y resinoides"
+				             else if twoDigitCode = "34" then "34-Jabón, agentes de superficie orgánicos"
+				             else if twoDigitCode = "35" then "35-Materias albuminoideas"
+				             else if twoDigitCode = "36" then "36-Pólvora y explosivos"
+				             else if twoDigitCode = "37" then "37-Productos fotográficos o cinematográficos"
+				             else if twoDigitCode = "38" then "38-Productos diversos de las industrias químicas"
+				             else if twoDigitCode = "39" then "39-Plástico y sus manufacturas"
+				             else if twoDigitCode = "40" then "40-Caucho y sus manufacturas"
+				             else if twoDigitCode = "41" then "41-Pieles y cueros"
+				             else if twoDigitCode = "42" then "42-Manufacturas de cuero"
+				             else if twoDigitCode = "43" then "43-Peletería y confecciones de peletería"
+				             else if twoDigitCode = "44" then "44-Madera, carbón vegetal y manufacturas de madera"
+				             else if twoDigitCode = "45" then "45-Corcho y sus manufacturas"
+				             else if twoDigitCode = "46" then "46-Manufacturas de espartería o cestería"
+				             else if twoDigitCode = "47" then "47-Desperdicios y desechos de madera"
+				             else if twoDigitCode = "48" then "48-Papel y cartón"
+				             else if twoDigitCode = "49" then "49-Productos editoriales, de la prensa y de las demás industrias gráficas"
+				             else if twoDigitCode = "50" then "50-Seda"
+				             else if twoDigitCode = "51" then "51-Lana y pelo"
+				             else if twoDigitCode = "52" then "52-Algodón"
+				             else if twoDigitCode = "53" then "53-Demás fibras textiles vegetales"
+				             else if twoDigitCode = "54" then "54-Filamentos sintéticos o artificiales"
+				             else if twoDigitCode = "55" then "55-Fibras sintéticas o artificiales discontinuas"
+				             else if twoDigitCode = "56" then "56-Guata, fieltro y tela sin tejer"
+				             else if twoDigitCode = "57" then "57-Alfombras y demás revestimientos para el suelo, de materia textil"
+				             else if twoDigitCode = "58" then "58-Tejidos especiales;"
+				             else if twoDigitCode = "59" then "59-Telas impregnadas, recubiertas, revestidas o estratificadas"
+				             else if twoDigitCode = "60" then "60-Tejidos de punto"
+				             else if twoDigitCode = "61" then "61-Prendas y complementos (accesorios), de vestir, de punto"
+				             else if twoDigitCode = "62" then "62-Prendas y complementos (accesorios), de vestir, excepto los de punto"
+				             else if twoDigitCode = "63" then "63-Los demás artículos textiles confeccionados; juegos; prendería y trapos"
+				             else if twoDigitCode = "64" then "64-Calzado, polainas y artículos análogos"
+				             else if twoDigitCode = "65" then "65-Sombreros, demás tocados y sus partes"
+				             else if twoDigitCode = "66" then "66-Paraguas, sombrillas, quitasoles, bastones, bastones asiento, látigos, fustas, y sus partes"
+				             else if twoDigitCode = "67" then "67-Plumas y plumón preparados y artículos de plumas o plumón"
+				             else if twoDigitCode = "68" then "68-Manufacturas de piedra, yeso fraguable, cemento, amianto (asbesto), mica o materias análogas"
+				             else if twoDigitCode = "69" then "69-Productos cerámicos"
+				             else if twoDigitCode = "70" then "70-Vidrio y sus manufacturas"
+				             else if twoDigitCode = "71" then "71-Perlas finas (naturales) o cultivadas, piedras preciosas o semipreciosas, metales preciosos, chapados de metal precioso (plaqué) y manufacturas de estas materias"
+				             else if twoDigitCode = "72" then "72-Fundición, hierro y acero"
+				             else if twoDigitCode = "73" then "73-Manufacturas de fundición, hierro o acero"
+				             else if twoDigitCode = "74" then "74-Cobre y sus manufacturas"
+				             else if twoDigitCode = "75" then "75-Níquel y sus manufacturas"
+				             else if twoDigitCode = "76" then "76-Aluminio y sus manufacturas"
+				             else if twoDigitCode = "77" then "77-RESERVADO"
+				             else if twoDigitCode = "78" then "78-Plomo y sus manufacturas"
+				             else if twoDigitCode = "79" then "79-Cinc y sus manufacturas"
+				             else if twoDigitCode = "80" then "80-Estaño y sus manufacturas"
+				             else if twoDigitCode = "81" then "81-Demás metales comunes"
+				             else if twoDigitCode = "82" then "82-Herramientas y útiles, artículos de cuchillería y cubiertos de mesa, de metal común"
+				             else if twoDigitCode = "83" then "83-Manufacturas diversas de metal común"
+				             else if twoDigitCode = "84" then "84-Máquinas, aparatos y artefactos mecánicos"
+				             else if twoDigitCode = "85" then "85-Máquinas, aparatos y material eléctrico"
+				             else if twoDigitCode = "86" then "86-Vehículos y material para vías férreas o similares, y sus partes"
+				             else if twoDigitCode = "87" then "87-Vehículos automóviles, tractores, velocípedos y demás vehículos terrestres"
+				             else if twoDigitCode = "88" then "88-Aeronaves, vehículos espaciales y sus partes"
+				             else if twoDigitCode = "89" then "89-Barcos y demás artefactos flotantes"
+				             else if twoDigitCode = "90" then "90-Instrumentos y aparatos de óptica, fotografía o cinematografía, de medida, control o precisión"
+				             else if twoDigitCode = "91" then "91-Aparatos de relojería y sus partes"
+				             else if twoDigitCode = "92" then "92-Instrumentos musicales"
+				             else if twoDigitCode = "93" then "93-Armas, municiones y sus partes y accesorios"
+				             else if twoDigitCode = "94" then "94-Muebles; mobiliario medicoquirúrgico; artículos de cama y similares"
+				             else if twoDigitCode = "95" then "95-Juguetes, juegos y artículos para recreo o deporte"
+				             else if twoDigitCode = "96" then "96-Manufacturas diversas"
+				             else if twoDigitCode = "97" then "97-Objetos de arte o colección y antigüedades"
+				             else if twoDigitCode = "98" then "98-Tratamiento especial"
+				             else "OTRO", // Default final
+				
+				    type text // Define el tipo de la nueva columna
+				),
+				    #"CAPITULO AGREGADO" = Table.AddColumn(#"CAPITULO_DESC AGREGADO", "CAPITULO", each Text.Start(Text.PadStart(Text.From([NUM_PARTNANDI]), 10, "0"), 2)),
+				    #"PARTIDA AGREGADA" = Table.AddColumn(#"CAPITULO AGREGADO", "PARTIDA", each Text.Start(Text.PadStart(Text.From([NUM_PARTNANDI]), 10, "0"), 4))
+				in
+				    #"PARTIDA AGREGADA"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

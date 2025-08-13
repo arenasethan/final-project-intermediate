@@ -1,0 +1,304 @@
+table Declaraciones
+	lineageTag: 2586fe13-9a74-4af6-bf8e-a0aec0a99263
+
+	column NUM_CORREDOC
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c3ff79f-efa8-44aa-a5a2-cbdcac929e54
+		summarizeBy: none
+		sourceColumn: NUM_CORREDOC
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAM
+		dataType: string
+		lineageTag: ebe18dcc-6d59-47ea-b7fb-a9e30f9c9619
+		summarizeBy: none
+		sourceColumn: DAM
+
+		annotation SummarizationSetBy = Automatic
+
+	column FEC_DECLARACION
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d333c713-44b4-4127-b706-e3585c3ae7a9
+		summarizeBy: none
+		sourceColumn: FEC_DECLARACION
+
+		variation Variación
+			isDefault
+			relationship: fc3c7c7a-5cbe-4bc2-b59e-db3249120cd3
+			defaultHierarchy: LocalDateTable_4fd01d63-e657-4c95-88ef-17913c9cddb4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FEC_AUTLEVANTE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2bbd676d-fa9a-4df7-b1d5-c1a0771acde7
+		summarizeBy: none
+		sourceColumn: FEC_AUTLEVANTE
+
+		variation Variación
+			isDefault
+			relationship: e3e68324-e9a1-463f-94f0-1f897b151fd8
+			defaultHierarchy: LocalDateTable_0074ca80-9334-48e3-850e-732a3baeaf80.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_MODALIDAD
+		dataType: string
+		lineageTag: 6124679d-14dc-4526-a1ea-b2652eeb28ab
+		summarizeBy: none
+		sourceColumn: COD_MODALIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_LUGARRECEP
+		dataType: int64
+		formatString: 0
+		lineageTag: 81e61b76-d188-4125-989e-f30e6995f578
+		summarizeBy: none
+		sourceColumn: COD_LUGARRECEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column MTO_TOTFOBDOL
+		dataType: double
+		lineageTag: 3bdd66d2-1cb1-4fed-8e72-efe2e9e3cf2e
+		summarizeBy: sum
+		sourceColumn: MTO_TOTFOBDOL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTO_TOTFLETEDOL
+		dataType: double
+		lineageTag: 59a84bcf-9d34-4286-a70c-ffaac4e62db6
+		summarizeBy: sum
+		sourceColumn: MTO_TOTFLETEDOL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTO_TOTSEGDOL
+		dataType: double
+		lineageTag: 858b4d1c-e38f-4044-b691-048886f065f3
+		summarizeBy: sum
+		sourceColumn: MTO_TOTSEGDOL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MTO_TOTVALORADU
+		dataType: double
+		lineageTag: ecf550ca-be6c-4aa0-a003-3dcfd9e2f656
+		summarizeBy: sum
+		sourceColumn: MTO_TOTVALORADU
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CNT_PESOBRUTO_TOTAL
+		dataType: double
+		lineageTag: e7793911-da6f-48b0-b780-540f6f761813
+		summarizeBy: sum
+		sourceColumn: CNT_PESOBRUTO_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CNT_PESONETO_TOTAL
+		dataType: double
+		lineageTag: 89279b5c-a5b9-454c-bba5-0f5411a13897
+		summarizeBy: sum
+		sourceColumn: CNT_PESONETO_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CNT_TOTBULTOS
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f56e0fc-25ca-4467-9e76-15afa9a30d09
+		summarizeBy: sum
+		sourceColumn: CNT_TOTBULTOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNT_TOTSERIES
+		dataType: int64
+		formatString: 0
+		lineageTag: 5468b4bc-780a-4df8-81df-ad485cf3a523
+		summarizeBy: sum
+		sourceColumn: CNT_TOTSERIES
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_ESTDUA
+		dataType: int64
+		formatString: 0
+		lineageTag: 4abadea2-62a6-4235-8f4f-783f31940aba
+		summarizeBy: none
+		sourceColumn: COD_ESTDUA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNT_PLZCREDITO
+		dataType: int64
+		formatString: 0
+		lineageTag: 84fa3270-ad8a-4561-824b-e13e3ce057cb
+		summarizeBy: sum
+		sourceColumn: CNT_PLZCREDITO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COD_CANAL
+		dataType: string
+		lineageTag: ac5b934f-cbc3-48db-949d-4d149078ac6f
+		summarizeBy: none
+		sourceColumn: COD_CANAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column NUM_CORREDOC_MANI
+		dataType: string
+		lineageTag: 029fcfc3-93de-4c5e-afa4-b77e0fb96748
+		summarizeBy: none
+		sourceColumn: NUM_CORREDOC_MANI
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOM_MODALIDAD
+		dataType: string
+		lineageTag: a8e3f073-d119-42d1-b146-d6b9d6592b5a
+		summarizeBy: none
+		sourceColumn: NOM_MODALIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column FECHA_NUMERACION
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: cd23f94d-3742-494f-b398-abe518dd4106
+		summarizeBy: none
+		sourceColumn: FECHA_NUMERACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column DIA_NUMERACION
+		dataType: string
+		lineageTag: 90696593-6b4e-4687-9fd2-b9252a830a96
+		summarizeBy: none
+		sourceColumn: DIA_NUMERACION
+		sortByColumn: ORDEN_DIA
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column HORA_NUMERACION
+		dataType: string
+		lineageTag: f788d54c-0f12-41c5-abb8-a39bff394173
+		summarizeBy: none
+		sourceColumn: HORA_NUMERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ORDEN_DIA
+		dataType: string
+		lineageTag: a972c108-5354-4548-b061-6de4decdb200
+		summarizeBy: none
+		sourceColumn: ORDEN_DIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column RANGO_SERIES =
+			
+			VAR SERIES=Declaraciones[CNT_TOTSERIES]
+			return
+			IF(FORMAT(SERIES, "0") = "1", "1",
+			IF(FORMAT(SERIES, "0") = "2", "2",
+			IF(FORMAT(SERIES, "0") = "3", "3",
+			IF(FORMAT(SERIES, "0") = "4", "4",
+			IF(FORMAT(SERIES, "0") = "5", "5",
+			IF(VALUE(FORMAT(SERIES, "0")) >= 6 && VALUE(FORMAT(SERIES, "0")) <= 10, "6 a 10",
+			IF(VALUE(FORMAT(SERIES, "0")) >= 11 && VALUE(FORMAT(SERIES, "0")) <= 25, "11 a 25",
+			IF(VALUE(FORMAT(SERIES, "0")) >= 26 && VALUE(FORMAT(SERIES, "0")) <= 50, "26 a 50",
+			IF(VALUE(FORMAT(SERIES, "0")) >= 51 && VALUE(FORMAT(SERIES, "0")) <= 100, "51 a 100",
+			IF(VALUE(FORMAT(SERIES, "0")) >= 101, "101 a más", BLANK())
+			)))))))))
+		lineageTag: 73dffe40-66d8-46ec-98a2-55823aa272db
+		summarizeBy: none
+		sortByColumn: RANK_SERIES
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column RANK_SERIES =
+			
+			VAR SERIES=Declaraciones[CNT_TOTSERIES]
+			return
+			IF(FORMAT(SERIES, "0") = "1", 1,
+			IF(FORMAT(SERIES, "0") = "2", 2,
+			IF(FORMAT(SERIES, "0") = "3", 3,
+			IF(FORMAT(SERIES, "0") = "4", 4,
+			IF(FORMAT(SERIES, "0") = "5", 5,
+			IF(VALUE(FORMAT(SERIES, "0")) >= 6 && VALUE(FORMAT(SERIES, "0")) <= 10, 6,
+			IF(VALUE(FORMAT(SERIES, "0")) >= 11 && VALUE(FORMAT(SERIES, "0")) <= 25, 7,
+			IF(VALUE(FORMAT(SERIES, "0")) >= 26 && VALUE(FORMAT(SERIES, "0")) <= 50, 8,
+			IF(VALUE(FORMAT(SERIES, "0")) >= 51 && VALUE(FORMAT(SERIES, "0")) <= 100, 9,
+			IF(VALUE(FORMAT(SERIES, "0")) >= 101, 10, BLANK())
+			)))))))))
+		formatString: 0
+		lineageTag: 775d14cf-3852-46cf-81d0-fe2ccba1fca7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Declaraciones = m
+		mode: import
+		source = ```
+				let
+				    Origen = Folder.Files("D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS"),
+				    #"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_DAM_PRINCIPAL csv" = Origen{[#"Folder Path"="D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\",Name="DAM_PRINCIPAL.csv"]}[Content],
+				    #"CSV importado" = Csv.Document(#"D:\Usuarios\earenasr\Documents\EXTRACCIONES\SCRIPTS\_DAM_PRINCIPAL csv",[Delimiter=",", Columns=18, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"CSV importado", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"NUM_CORREDOC", Int64.Type}, {"DAM", type text}, {"FEC_DECLARACION", type datetime}, {"FEC_AUTLEVANTE", type datetime}, {"COD_MODALIDAD", type text}, {"COD_LUGARRECEP", Int64.Type}, {"MTO_TOTFOBDOL", type number}, {"MTO_TOTFLETEDOL", type number}, {"MTO_TOTSEGDOL", type number}, {"MTO_TOTVALORADU", type number}, {"CNT_PESOBRUTO_TOTAL", type number}, {"CNT_PESONETO_TOTAL", type number}, {"CNT_TOTBULTOS", Int64.Type}, {"CNT_TOTSERIES", Int64.Type}, {"COD_ESTDUA", Int64.Type}, {"CNT_PLZCREDITO", Int64.Type}, {"COD_CANAL", type text}}),
+				    #"COD_CANAL CAMBIADO" = Table.ReplaceValue(
+				    Table.ReplaceValue(
+				        Table.ReplaceValue(#"Tipo cambiado", "V", "Verde", Replacer.ReplaceText, {"COD_CANAL"}),
+				        "F", "Rojo", Replacer.ReplaceText, {"COD_CANAL"}
+				    ),
+				    "D", "Naranja", Replacer.ReplaceText, {"COD_CANAL"}
+				),
+				    #"NOM_CANAL AGREGADO" = Table.AddColumn(#"COD_CANAL CAMBIADO", "NOM_MODALIDAD", each 
+				    if [COD_MODALIDAD] = "00" then "DIFERIDO" 
+				    else if [COD_MODALIDAD] = "01" then "URGENTE" 
+				    else if [COD_MODALIDAD] = "10" then "ANTICIPADO" 
+				    else null
+				),
+				    #"FECHA_NUMERACION AGREGADO" = Table.AddColumn(#"NOM_CANAL AGREGADO", "FECHA_NUMERACION", each DateTime.Date([FEC_DECLARACION])),
+				    #"Tipo cambiado1" = Table.TransformColumnTypes(#"FECHA_NUMERACION AGREGADO",{{"FECHA_NUMERACION", type date}}),
+				    #"DIA_NUMERACION AGREGADO" = Table.AddColumn(#"Tipo cambiado1", "DIA_NUMERACION", each Date.DayOfWeekName([FEC_DECLARACION])),
+				    #"ORDEN_DIA AGREGADO" = Table.AddColumn(#"DIA_NUMERACION AGREGADO", "ORDEN_DIA", each Date.DayOfWeek([FEC_DECLARACION])),
+				    #"HORA_NUMERACION AGREGADO" = Table.AddColumn(#"ORDEN_DIA AGREGADO", "HORA_NUMERACION", each Time.Hour(DateTime.Time([FEC_DECLARACION])))
+				in
+				    #"HORA_NUMERACION AGREGADO"
+				```
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
