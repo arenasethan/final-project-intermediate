@@ -4599,6 +4599,313 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "medida.cant_manifiestos_no_arribados": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "CantManifiestosNoArribados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cant manifiestos no arribados": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CantManifiestosNoArribados": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "cant manifiesto number arribado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "medida.MoM_de_CantDeclaraciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "MoM% de CantDeclaraciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MoM% de CantDeclaraciones": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "mom percentage de cantdeclaracione": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "mom pct de cantdeclaracione": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "medida.sum_FOB_mes_anterior": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "SumFOBMesAnterior"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum FOB mes anterior": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SumFOBMesAnterior": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "summation fob me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "aggregation fob me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "total fob me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "aggregate fob me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "amount fob me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "medida.variacion_FOB": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "VariacionFOB"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "variacion FOB": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VariacionFOB": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "medida.cant_declaraciones_mes_anterior": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "CantDeclaracionesMesAnterior"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cant declaraciones mes anterior": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "CantDeclaracionesMesAnterior": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "medida.sum_peso_neto_mes_anterior": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "SumPesoNetoMesAnterior"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sum peso neto mes anterior": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SumPesoNetoMesAnterior": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "summation peso neto me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "aggregation peso neto me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "total peso neto me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "aggregate peso neto me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "amount peso neto me anterior": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "medida.variacion_declaraciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "VariacionDeclaraciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "variacion declaraciones": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VariacionDeclaraciones": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "medida.variacion_peso_neto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "VariacionPesoNeto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "variacion peso neto": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VariacionPesoNeto": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -5693,6 +6000,270 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "lugares_have_declaraciones"
+			        }
+			      ]
+			    },
+			    "declaracione_has_medida_variacion_peso_neto": {
+			      "Binding": {
+			        "ConceptualEntity": "Declaraciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "declaracione": {
+			          "Target": {
+			            "Entity": "declaracione"
+			          }
+			        },
+			        "medida.variacion_peso_neto": {
+			          "Target": {
+			            "Entity": "medida.variacion_peso_neto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "declaracione"
+			            },
+			            "Object": {
+			              "Role": "medida.variacion_peso_neto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "declaraciones_have_variacion_peso_neto"
+			        }
+			      ]
+			    },
+			    "declaracione_has_medida_variacion_declaraciones": {
+			      "Binding": {
+			        "ConceptualEntity": "Declaraciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "declaracione": {
+			          "Target": {
+			            "Entity": "declaracione"
+			          }
+			        },
+			        "medida.variacion_declaraciones": {
+			          "Target": {
+			            "Entity": "medida.variacion_declaraciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "declaracione"
+			            },
+			            "Object": {
+			              "Role": "medida.variacion_declaraciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "declaraciones_have_variacion_declaraciones"
+			        }
+			      ]
+			    },
+			    "declaracione_has_medida_sum_peso_neto_mes_anterior": {
+			      "Binding": {
+			        "ConceptualEntity": "Declaraciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "declaracione": {
+			          "Target": {
+			            "Entity": "declaracione"
+			          }
+			        },
+			        "medida.sum_peso_neto_mes_anterior": {
+			          "Target": {
+			            "Entity": "medida.sum_peso_neto_mes_anterior"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "declaracione"
+			            },
+			            "Object": {
+			              "Role": "medida.sum_peso_neto_mes_anterior"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "declaraciones_have_sum_peso_neto_mes_anterior"
+			        }
+			      ]
+			    },
+			    "declaracione_has_medida_cant_declaraciones_mes_anterior": {
+			      "Binding": {
+			        "ConceptualEntity": "Declaraciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "declaracione": {
+			          "Target": {
+			            "Entity": "declaracione"
+			          }
+			        },
+			        "medida.cant_declaraciones_mes_anterior": {
+			          "Target": {
+			            "Entity": "medida.cant_declaraciones_mes_anterior"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "declaracione"
+			            },
+			            "Object": {
+			              "Role": "medida.cant_declaraciones_mes_anterior"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "declaraciones_have_cant_declaraciones_mes_anterior"
+			        }
+			      ]
+			    },
+			    "declaracione_has_medida_variacion_FOB": {
+			      "Binding": {
+			        "ConceptualEntity": "Declaraciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "declaracione": {
+			          "Target": {
+			            "Entity": "declaracione"
+			          }
+			        },
+			        "medida.variacion_FOB": {
+			          "Target": {
+			            "Entity": "medida.variacion_FOB"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "declaracione"
+			            },
+			            "Object": {
+			              "Role": "medida.variacion_FOB"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "declaraciones_have_variacion_FOB"
+			        }
+			      ]
+			    },
+			    "declaracione_has_medida_sum_FOB_mes_anterior": {
+			      "Binding": {
+			        "ConceptualEntity": "Declaraciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "declaracione": {
+			          "Target": {
+			            "Entity": "declaracione"
+			          }
+			        },
+			        "medida.sum_FOB_mes_anterior": {
+			          "Target": {
+			            "Entity": "medida.sum_FOB_mes_anterior"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "declaracione"
+			            },
+			            "Object": {
+			              "Role": "medida.sum_FOB_mes_anterior"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "declaraciones_have_sum_FOB_mes_anterior"
+			        }
+			      ]
+			    },
+			    "declaracione_has_medida_MoM_de_CantDeclaraciones": {
+			      "Binding": {
+			        "ConceptualEntity": "Declaraciones"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "declaracione": {
+			          "Target": {
+			            "Entity": "declaracione"
+			          }
+			        },
+			        "medida.MoM_de_CantDeclaraciones": {
+			          "Target": {
+			            "Entity": "medida.MoM_de_CantDeclaraciones"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "declaracione"
+			            },
+			            "Object": {
+			              "Role": "medida.MoM_de_CantDeclaraciones"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "declaraciones_have_MoM_de_CantDeclaraciones"
+			        }
+			      ]
+			    },
+			    "manifiesto_has_medida_cant_manifiestos_no_arribados": {
+			      "Binding": {
+			        "ConceptualEntity": "Manifiestos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "manifiesto": {
+			          "Target": {
+			            "Entity": "manifiesto"
+			          }
+			        },
+			        "medida.cant_manifiestos_no_arribados": {
+			          "Target": {
+			            "Entity": "medida.cant_manifiestos_no_arribados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "manifiesto"
+			            },
+			            "Object": {
+			              "Role": "medida.cant_manifiestos_no_arribados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "manifiestos_have_cant_manifiestos_no_arribados"
 			        }
 			      ]
 			    },

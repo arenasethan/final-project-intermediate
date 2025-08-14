@@ -123,6 +123,82 @@ table Medidas
 		displayFolder: Calculate
 		lineageTag: 52ddf9c4-8ea7-4bf1-b026-aea72477b98b
 
+	measure 'MoM% de CantDeclaraciones' =
+			
+			VAR __PREV_MONTH = CALCULATE([CantDeclaraciones], DATEADD('Calendario'[Date], -1, MONTH))
+			RETURN
+				DIVIDE([CantDeclaraciones] - __PREV_MONTH, __PREV_MONTH)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		displayFolder: Medidas rapidas
+		lineageTag: 627df8fd-e4ba-4807-ab6e-dc6112abb798
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MonthOverMonth"
+				}
+
+	measure SumFOBMesAnterior =
+			
+			
+			CALCULATE([SumFOB],PREVIOUSMONTH(Calendario[Date]))
+		displayFolder: Tiempo
+		lineageTag: 06731461-7c1e-4825-ac05-23de472cc8f6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure VariacionFOB = ```
+			
+			    DIVIDE(
+			        [SumFOB] - [SumFOBMesAnterior],
+			        [SumFOBMesAnterior]
+			    )
+			```
+		formatString: 0.00
+		displayFolder: Porcentaje
+		lineageTag: 5038c357-d246-4304-9957-6a0afad63dab
+
+	measure CantDeclaracionesMesAnterior =
+			
+			
+			CALCULATE([CantDeclaraciones],PREVIOUSMONTH(Calendario[Date]))
+		formatString: 0
+		displayFolder: Tiempo
+		lineageTag: a04befbe-ab59-4b36-8408-551bae49fdcc
+
+	measure SumPesoNetoMesAnterior =
+			
+			
+			CALCULATE([SumPesoNeto],PREVIOUSMONTH(Calendario[Date]))
+		displayFolder: Tiempo
+		lineageTag: 6af38fdd-e69b-4952-8f8e-79045b50842e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure VariacionDeclaraciones = ```
+			
+			    DIVIDE(
+			        [CantDeclaraciones] - [CantDeclaracionesMesAnterior],
+			        [CantDeclaracionesMesAnterior]
+			    )
+			```
+		displayFolder: Porcentaje
+		lineageTag: 4307e065-e26f-40b0-bec5-4e6f95892e74
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure VariacionPesoNeto = ```
+			
+			    DIVIDE(
+			        [SumPesoNeto] - [SumPesoNetoMesAnterior],
+			        [SumPesoNetoMesAnterior]
+			    )
+			```
+		displayFolder: Porcentaje
+		lineageTag: d4c92610-59d1-4582-8af4-b9787deecb30
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition Medidas = m
 		mode: import
 		source =
